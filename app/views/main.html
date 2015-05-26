@@ -1,0 +1,49 @@
+<div ng-controller="MainCtrl">
+  <h1 class="page-title">{{title}} <small>{{subtitle}}</small></h1>
+
+  <div class="form-container origination-form">
+    <div class="label">From:</div>
+    <select
+      ng-disabled="application.isRunning()"
+      ng-model="selectedLocation.origin"
+      ng-options="location.coords as location.name for location in locations.origins">
+      <option value="">-- choose starting location --</option>
+    </select>
+  </div>
+
+  <div class="form-container destination-form">
+    <div class="label">To:</div>
+    <select
+      ng-disabled="application.isRunning()"
+      ng-model="selectedLocation.destination"
+      ng-options="location.coords as location.name for location in locations.destinations">
+      <option value="">-- choose ending location --</option>
+    </select>
+  </div>
+
+  <div class="button-container">
+    <button ng-disabled="!application.isReadyToRun() || application.isRunning()" ng-click="application.start()">Start</button>
+    <button ng-disabled="!application.isRunning()" ng-click="application.stop()">Stop</button>
+  </div>
+
+  <div>
+    <table class="table" ng-show="itineraryResults.length > 0">
+      <thead>
+      <tr>
+        <th>Date/Time:</th>
+        <th>Travel Distance</th>
+        <th>Travel Time</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="r in itineraryResults">
+        <td>{{r.reportedTime | date:'M/d/yy h:mm:ss a'}}</td>
+        <td>{{r.travelDistance}}</td>
+        <td>{{r.travelTime}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p ng-show="itineraryResults.length > 1">Average Time (minutes): <span>{{averageTraveledTime}}</span></p>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+{ "origins":
+    [
+        {
+            "name": "Fall River, MA",
+            "coords":{
+                "latitude": 41.701064,
+                "longitude": -71.154637
+            }
+        },
+        {
+            "name": "Westport, MA",
+            "coords":{
+                "latitude": 41.552088,
+                "longitude": -71.078565
+            }
+        }
+    ],
+    "destinations":[
+        {
+            "name": "Waltham, MA",
+            "coords":{
+                "latitude": 42.37564,
+                "longitude": -71.2358
+            }
+        },
+        {
+            "name": "Boston, MA",
+            "coords":{
+                "latitude": 42.360482,
+                "longitude": -71.059568
+            }
+        }
+    ]}
